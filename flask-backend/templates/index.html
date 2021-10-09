@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="styles/index.css">
     <title>QMS</title>
 </head>
 <body>
@@ -19,7 +19,7 @@
         <button class="sub" onclick="document.getElementById('adlog').style.display='block'">Admin Login</button>
     </div>
     <div id="alog" class="modal">
-        <form class="modal-content animate" action="{{ url_for('agent_form') }}" method="POST">
+        <form class="modal-content animate" action="/" method="POST">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('alog').style.display='none'" class='close'>&times;</span>
             </div>
@@ -48,7 +48,7 @@
     </div>
 
     <div id="adlog" class="modal">
-        <form class="modal-content animate" action="POST">
+        <form class="modal-content animate" action="/" method="POST">
             <div class="imgcontainer">
                 <span onclick="document.getElementById('adlog').style.display='none'" class='close'>&times;</span>
             </div>
