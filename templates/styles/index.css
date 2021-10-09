@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Righteous', cursive;
+    overflow: hidden;
+}
+
+input, button {
+    appearance: none;
+    background: none;
+    border: none;
+    outline: none;
+}
+header {
+    height: 80px;
+    border-bottom: 2px solid #080808;
+    background-color: #FFF;
+}
+header .dp {
+    padding: 10px;
+    border-radius: 50%;
+    background-image: linear-gradient(to bottom right, #308EAB, #F7D624);
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+    margin-top: 15px;
+}
+header h2 {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 30px;
+    position: absolute;
+    margin-left: 80px;
+    top: 20px;
+}
+.App {
+    height: 100vh;
+    /* display: flex;
+    align-items: center; */
+    justify-content: center;
+    background-color: #FBC702;
+}
+.App h2 {
+    display: block;
+    margin: 200px 31% 100px;
+    font-size: 68px;
+}
+
+.App .agent-details {
+  /* width: 60%; */
+  /* margin: 3% 20% 3%; */
+  /* background-color: #D5CABB; */
+  padding: 10px;
+  text-align: center;
+  display: flex;
+}
+
+.App .agent-details h2, .App .agent-details h3 {
+  font-size: 20px;
+  margin: 1%;
+  padding: 1%;
+  background-color: #FFF;
+  border-radius: 20px;
+}
+
+.App .agent-details h2:hover, .App .agent-details h3:hover {
+  box-shadow: 3px 3px 3px #080808;
+}
+
+.App .number {
+  display: flex;
+  margin: 2% 10% 2%;
+  /* width: 80%; */
+  color: #FFF;
+}
+
+.App .number h3 {
+  text-align: center;
+  font-size: 30px;
+  text-transform: uppercase;
+  padding-bottom: 2%;
+}
+
+.App .number p {
+  text-align: center;
+  font-size: 800%;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-width: 450px) {
+
+  .App .number h3 { 
+    font-size: 15px;
+  }
+  .App .number p {
+    font-size: 200%;
+  }
+
+  .App .number .serving {
+    height: 150px;
+  }
+}
+.App .number .serving {
+  background-color: #080808;
+  margin: 1% 10% 1%;
+  width: 33%;
+  padding: 15px;
+  height: 250px;
+}
+
+.App .number .serving h3 {
+  border-bottom:2px solid #FFF;
+}
+
+.App .number .next {
+  background-color: #FFF;
+  color: #080808;
+  margin: 1% 10% 1%;
+  width: 33%;
+  padding: 15px;
+  height: 250px;
+}
+
+.App .number .next h3 {
+  border-bottom:2px solid #080808;
+}
+
+.App .actions {
+  display: block;
+  margin-left: 15%;
+}
+
+.App .actions button {
+  color: #FFF;
+  background-color: #308EAB;
+  padding: 10px;
+  margin: 3%;
+  font-size: 24px;
+  width: 35%;
+  height: 50px;
+}
+
+.App .actions button.right {
+  left: 70%;
+}
+
+.App .actions button.left {
+  right: 70%;
+}
+
+.App #queues .queues_dt, #served h3 {
+  position: absolute;
+  top: 11%;
+  left: 80%;
+  background-color: #FFF;
+}
+
+.App #queues h3 {
+  display: inline-block;
+  padding: 8px;
+}
+
+span.page {
+  margin: 5% 47% 0;
+  font-size: 20px;
+}
+
+.App table {
+  margin: 5% 15% 1%;
+  padding: 3%;
+  width: 70%;
+  height: 60%;
+  background-color: #FFF;
+}
+
+.App table th {
+  font-size: 30px;
+  text-align: left;
+}
+
+.App table td {
+  padding: 4%;
+  font-size: 22px;
+  border-bottom: 1px solid #080808;
+}
+
+span.success {
+  background-color: #4BB543;
+  padding: 10px;
+  margin-right: 3px;
+}
+
+.App table button {
+  background-color: #308EAB;
+  font-size: 20px;
+  padding: 12px;
+}
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a, .sidebar button{
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover, .sidebar button:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main, .App {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.container {
+    padding: 16px;
+}
+
+button.sub {
+    background-color: #308EAB;
+    color: #FFF;
+    padding: 13px;
+    font-size: 26px;
+    border-radius: 30px;
+    margin: 10px 28% 20px;
+    width: 40%;
+    display: block;
+}
+
+  span.psw {
+    /* float: right; */
+    padding-top: 16px;
+  }
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #080808;
+    color: white;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 50%; /* Could be more or less, depending on screen size */
+  }
+
+  button.modal-btn {
+      display: block;
+      background-color: #308EAB;
+      color: #FFF;
+      padding: 15px;
+      margin: 0 40% 0;
+      width: 20%;
+      border-radius: 30px;
+      text-transform: uppercase;
+      font-size: 24px;
+  }
+
+  .container h2 {
+      text-align: center;
+      font-size: 50px;
+      margin-bottom: 3%;
+  }
+  .container .form-group {
+      background-color: #FFF;
+      border-radius: 30px;
+      padding: 15px;
+      margin: 0 30% 0;
+      width: 40%;
+      height: 5%;
+      display: block;
+      margin-bottom: 15px;
+  }
+  
+  /* The Close Button (x) */
+  .close {
+    margin-right: 30px;
+    float: right;
+    top: 0;
+    color: #FFF;
+    font-size: 35px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: red;
+    cursor: pointer;
+  }
+  
+  /* Add Zoom Animation */
+  .animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+  }
+  
+  @-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+  }
+    
+  @keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }

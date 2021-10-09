@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/index.css">
+    <title>QMS</title>
+</head>
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#status">Status</a>
+        <a href="#queues">Queues</a>
+        <a href="#served">Customers Served</a>
+        <button class="logout"> Logout </button>
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰</button>
+    </div>
+    <div class="App" id="mainApp">
+        <div id="status" style="display: none;">
+            <h6>Status &rightarrow;</h6>
+            <div class="agent-details">
+                <h2>Agent: Silvia</h2>
+                <h3>Status: Active</h3>
+                <h3>Queue: Cash Deposit</h3>
+            </div>
+            <div class="number">
+                <div class="serving">
+                    <h3>Serving</h3>
+                    <p>001</p>
+                </div>
+                <div class="next">
+                    <h3>Next Customer</h3>
+                    <p>002</p>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit" class="left">Service Complete</button>
+                <button type="submit" class="right">Call Customer Again</button>
+                <button type="submit" class="right">Call Next Customer</button>
+                <button type="submit" class="left">Customer did not arrive</button>
+            </div>
+        </div>
+        <div id="queues" style="display: none;">
+            <h6>Queues &rightarrow;</h6>
+            <div class="queues_dt">
+                <h3>Date: <span id="date"></span></h3>
+                <h3>Service time: <span id="time">1hr 10min</span></h3>
+            </div>
+            <table>
+                <tr>
+                    <th>Queue</th>
+                    <th>Action</th>
+                    <th>No. Customers</th>
+                </tr>
+                <tr>
+                    <td>Cash Deposit</td>
+                    <td><span class="success">Currently Serving</span><button type="submit"> Stop </button></td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Cheque deposit</td>
+                    <td><button type="submit">Serve</button></td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>Withdrawal</td>
+                    <td><button type="submit">Serve</button></td>
+                    <td>50</td>
+                </tr>
+            </table>
+            <span class="page">Page 1</span>
+        </div>
+        <div id="served">
+            <h6>Customers Served &rightarrow;</h6>
+            <h3>Hours active: <span>1hr 30min</span></h3>
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>No. Customers</th>
+                </tr>
+                <tr>
+                    <td>Withdrawal</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Cash Deposit</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Cheque Deposit</td>
+                    <td>5</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.getElementById("mainApp").style.marginLeft = "250px";
+        }
+        function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("mainApp").style.marginLeft = "0";
+        }
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+    </script>
+</body>
+</html>
