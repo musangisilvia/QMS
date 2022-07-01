@@ -38,7 +38,7 @@ jobs:
 
   print-myname:
     docker:
-      - image: cirleci/node:13.8.0
+      - image: cimg/base:stable
     steps:
       - checkout
       - run:
