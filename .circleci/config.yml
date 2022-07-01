@@ -36,6 +36,16 @@ jobs:
           name: "World" 
           command: "echo  World"
 
+  print-myname:
+    docker:
+    - image: cirleci/node:13.8.0
+    steps:
+      - checkout
+      - run:
+        name: "echo environment variable"
+        command: |
+            echo $ENV_VAR # this env var must be set within the project
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
