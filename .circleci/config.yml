@@ -56,3 +56,5 @@ workflows:
           requires: [say-hello]
       - print-world:
           requires: [print-hello]
+      - print_myname:
+          requires: [print-world]
