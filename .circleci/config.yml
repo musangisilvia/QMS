@@ -43,7 +43,8 @@ jobs:
       - checkout
       - run:
           name: "echo environment variable"
-          command: "echo $ENV_VAR # this env var must be set within the project"
+          command: |
+          echo $ENV_VAR
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
