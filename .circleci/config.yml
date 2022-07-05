@@ -13,7 +13,7 @@ jobs:
       - run:
           name: "Hello" 
           command: "echo 'Hello world' > output.txt"
-      - persists_to_workspace:
+      - persist_to_workspace:
           root: .
           paths: output.txt
 
