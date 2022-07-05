@@ -17,7 +17,7 @@ jobs:
           root: .
           paths: output.txt
 
-  retreive-hello:
+  retrieve-hello:
     docker:
       - image: circleci/node:13.8.0
     steps:
