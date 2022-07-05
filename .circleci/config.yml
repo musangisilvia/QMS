@@ -2,9 +2,12 @@ version: 2.1
 
 jobs:
   fail_job:
+    docker:
+      - image: circleci/node:13.8.0
     steps:
       - run: return 1
-      - run: 
+      - run:
+          name: job-failed
           command: echo "This failed"
           when: on_fail
 
