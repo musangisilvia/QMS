@@ -5,55 +5,33 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  say-hello:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/base:stable
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Say hello"
-          command: "echo Hello, World!"
-  
-  print-hello:
+  save-hello-output:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
       - run:
           name: "Hello" 
-          command: "echo Hello,"
-  
-  print-world:
+          command: "echo 'Hello world' > output.txt"
+      - persists_to_workspace:
+          root: .
+          paths: output.txt
+
+  retreive-hello:
     docker:
       - image: circleci/node:13.8.0
     steps:
       - checkout
+      - attach-workspace:
+          at: .
       - run:
-          name: "World" 
-          command: "echo  World"
-
-  print-myname:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - checkout
-      - run:
-          name: "echo environment variable"
-          command: "echo $ENV_VAR # this env var must be set within the project"
+          command: "cat output.txt"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   say-hello-workflow:
     jobs:
-      - say-hello
-      - print-hello:
-          requires: [say-hello]
-      - print-world:
-          requires: [print-hello]
-      - print-myname:
-          requires: [print-world]
+      - save-hello-output
+      - retrieve-hello:
+          requires: [save-hello-output]
